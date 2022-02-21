@@ -94,17 +94,17 @@ async def on_message(message):
     #        for ext in picext:
     #            if ext in pic:
     
-    if (message.channel.id == "472402996378992650"):
-        if message.attachments:
-            pic = message.attachments[0]['url']
-            picext = ['.wav','.mp3','.m4a',".flac"]
-            for ext in picext:
-                if ext in pic:
-                    if "feedback" not in [y.name.lower() for y in message.author.roles]:
-                        await message.channel.send("Hey <@"+str(message.author.id)+">, please be sure to give feedback to a track. Don't be that guy. Nobody likes that guy.")
-                        chn = bot.get_channel(560534679229431808)
-                        await chn.send("<@"+str(message.author.id)+">: " + message.content)
-                        await message.delete()
+    #if (message.channel.id == "472402996378992650"):
+    #    if message.attachments:
+    #        pic = message.attachments[0]['url']
+    #        picext = ['.wav','.mp3','.m4a',".flac"]
+    #        for ext in picext:
+    #            if ext in pic:
+    #                if "feedback" not in [y.name.lower() for y in message.author.roles]:
+    #                    await message.channel.send("Hey <@"+str(message.author.id)+">, please be sure to give feedback to a track. Don't be that guy. Nobody likes that guy.")
+    #                    chn = bot.get_channel(560534679229431808)
+    #                    await chn.send("<@"+str(message.author.id)+">: " + message.content)
+    #                    await message.delete()
     
     if ("https://" in message.content and message.guild.id == 446157087211520030):
         print("Message: Read\n")
@@ -181,8 +181,6 @@ async def on_message(message):
         if ( ("feedback" in channel_name) and ("https://" in message.content or "soundcloud.com" in message.content or "http://" in message.content)):
             if ("feedback" not in [y.name.lower() for y in message.author.roles]) or ("posted track" in [y.name.lower() for y in message.author.roles]):
                 await message.channel.send("Hey now <@"+str(message.author.id)+">, in order to post here you must have the feedback role, and it looks like you don't have it. To get the feedback role you must give someone feedback first. Please remember this is a **feedback** channel, not a promotion channel.")
-                chn = bot.get_channel(560534679229431808)
-                await chn.send("<@"+str(message.author.id)+">: " + message.content)
                 await message.delete()
             if ("feedback" in [y.name.lower() for y in message.author.roles]) and ("posted track" not in [y.name.lower() for y in message.author.roles]):
                 role = discord.utils.get(message.guild.roles, name="Posted Track")
@@ -197,8 +195,6 @@ async def on_message(message):
                     if ext in mat:
                         if ("feedback" not in [y.name.lower() for y in message.author.roles]) or ("posted track" in [y.name.lower() for y in message.author.roles]):
                             await message.channel.send("Hey now <@"+str(message.author.id)+">, in order to post here you must have the feedback role, and it looks like you don't have it. To get the feedback role you must give someone feedback first. Please remember this is a **feedback** channel, not a promotion channel.")
-                            chn = bot.get_channel(560534679229431808)
-                            await chn.send("<@"+str(message.author.id)+">: " + message.content)
                             await message.delete()
                         if ("feedback" in [y.name.lower() for y in message.author.roles]) and ("posted track" not in [y.name.lower() for y in message.author.roles]):
                             role = discord.utils.get(message.guild.roles, name="Posted Track")
