@@ -520,4 +520,4 @@ async def sayinchannel(ctx, roomid: str, *, msg_str: str):
     if (id == "173850040568119296"):
         await chn.send(msg_str)
         
-bot.run("OTQ1MzM1MTY4MTYyNDcxOTY2.YhOp-w.gAymoF-yj1aS2mdkyKIBYtec0PI")
+bot.run(os.environ['BOT_TOKEN'])
