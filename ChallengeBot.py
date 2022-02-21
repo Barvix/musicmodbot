@@ -202,7 +202,7 @@ async def on_message(message):
         
         if ("feedback" in channel_name and ("http" not in message.content.lower())):    
             if any(fbr in message.content.lower() for fbr in fb_list):
-                role = discord.utils.get(message.guild.roles, name="Feedback")
+                role = discord.utils.get(message.guild.roles, name="feedback")
                 await message.author.add_roles(role)
 
     if (mod_feedback is True) and (message.channel.id == 743942136075911188):
