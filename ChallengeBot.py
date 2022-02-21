@@ -34,7 +34,7 @@ async def on_ready():
     print("Challenge Bot")
     print(bot.user.id)
     print('------')
-    chn = bot.get_channel(560534679229431808)
+    chn = bot.get_channel(945348390210920518)
     await chn.send("Reset complete 😄")
     mygame = discord.Game("Making Music 🎹 🎼 🎧 🎤")
     await bot.change_presence(activity=mygame)
