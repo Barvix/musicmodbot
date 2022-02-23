@@ -348,7 +348,7 @@ async def on_message(message):
                     "i could mix this to sound wayyy better, not trynna be cocky",
                     "why does it sound like the drummer fell into their set at 27 lol",
                     "I mean it's good, but I prefer the National Geotrappin remix.",
-                    "Well, at least it doesn't have Yxng Squirtle rapping on it. So it has that going for it. Barely.",
+                    "Well, at least it doesn't have The Oscean rapping on it. So it has that going for it. Barely.",
                     "I kinda wanna drink myself to sleep so I can forget I ever even heard that song.",
                     "If this song played Smash Bros, it would main Captain Falcon.",
                     "This bass drop is similar to Kanye dropping Yandhi: it doesn't fucking exist",
