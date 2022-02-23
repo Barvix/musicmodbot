@@ -164,15 +164,7 @@ async def on_message(message):
         if ("https://" in message.content or "soundcloud.com" in message.content or "http://" in message.content or "http://" in message.content):
             await message.channel.send("Look <@"+str(message.author.id)+">, you've been posting too many tracks dude. Like literally just tracks and nothing else. wack")
             await message.delete()
-            chn = bot.get_channel(560534679229431808)
-            await chn.send("Deleted track posted by <@"+str(message.author.id)+">")
-            await chn.send(message.content)
             print("track deleted")
-            
-    if ("nigger" in message.content.lower() or "fag" in message.content.lower() or "aggot" in message.content.lower()):
-        chn = bot.get_channel(560534679229431808)
-        await chn.send("<@"+str(message.author.id)+">: " + message.content)
-        await message.delete()
             
     mod_feedback = True
         
@@ -375,17 +367,6 @@ async def on_message(message):
 
 client = discord.Client()
 my_server = client.get_guild('server id')
-
-@bot.event
-async def on_member_join(member):
-    server = member.guild.id
-    if (server == 446157087211520030):
-        rules = bot.get_channel(560535198769348631)
-        getarole = bot.get_channel(560551182586609712)
-        feedbacks = bot.get_channel(560511832322736138)
-        message = 'Welcome {0.mention} to HipHop Creation Central! Please be sure to read the {1.mention}! If you need help using me head to {2.mention} and type !help\nPlease note if you want to post in {3.mention} you must first give quality feedback to someone.'.format(member,rules,getarole,feedbacks)
-        chn = bot.get_channel(560542321490264076)
-        await chn.send(message)
     
 @bot.command(pass_context = True)
 async def help(ctx):
@@ -416,11 +397,6 @@ async def sample(ctx):
         await ctx.send(urls)
     if (ctx.message.channel.id != 560556421733810187 and ctx.message.guild.id == 446157087211520030):
         await ctx.send("Please use <#560556421733810187> instead so this channel doesn't get cluttered")
-
-@bot.command(pass_context = True)
-async def remove_message(ctx, *, mid: str):
-    msg = await ctx.fetch_message( int(mid) )
-    await msg.delete()
         
 @bot.command(pass_context = True)
 async def roulette(ctx):
@@ -429,71 +405,6 @@ async def roulette(ctx):
     f.close()
     urls = str(x[random.randrange(0, len(x)-1)]) + "\n" + str(x[random.randrange(0, len(x)-1)]) + "\n" + str(x[random.randrange(0, len(x)-1)])
     await ctx.send(urls)
-
-@bot.command(pass_context = True)
-async def yeet(ctx):
-    role = discord.utils.get(ctx.message.guild.roles, name="Extremely politically correct")
-    await ctx.message.author.add_roles(ctx.message.author, role)
-    await ctx.send("Role successfully added!")
-  
-@bot.command(pass_context = True)
-async def admin(ctx):
-    await ctx.send("Role successfully added!")
-    
-@bot.command(pass_context = True)
-async def producer(ctx):
-    role = discord.utils.get(ctx.message.guild.roles, name="🎹🎹🎹Producer🎹🎹🎹")
-    await ctx.message.author.add_roles(ctx.message.author, role)
-    await ctx.send("Role successfully added!")
-    
-@bot.command(pass_context = True)
-async def engineer(ctx):
-    role = discord.utils.get(ctx.message.guild.roles, name="🎧🎧🎧Engineer🎧🎧🎧")
-    await ctx.message.author.add_roles(ctx.message.author, role)
-    await ctx.send("Role successfully added!")
-                           
-@bot.command(pass_context = True)
-async def singer(ctx):
-    role = discord.utils.get(ctx.message.guild.roles, name="🎤🎤🎤Singer🎤🎤🎤")
-    await ctx.message.author.add_roles(ctx.message.author, role)
-    await ctx.send("Role successfully added!")
-    
-@bot.command(pass_context = True)
-async def artist(ctx):
-    role = discord.utils.get(ctx.message.guild.roles, name="🎤🎤🎤Singer🎤🎤🎤")
-    await ctx.message.author.add_roles(ctx.message.author, role)
-    await ctx.send("Role successfully added!")
-
-@bot.command(pass_context = True)
-async def daw(ctx, *, dawname : str):
-    role = discord.utils.get(ctx.message.guild.roles, name="NONE") 
-    if (dawname.lower() == "fl studio"):
-        role = discord.utils.get(ctx.message.guild.roles, name="FL STUDIO")
-    if (dawname.lower() == "ableton"):
-        role = discord.utils.get(ctx.message.guild.roles, name="ABLETON")
-    if (dawname.lower() == "reason"):
-        role = discord.utils.get(ctx.message.guild.roles, name="REASON")
-    if (dawname.lower() == "pro tools"):
-        role = discord.utils.get(ctx.message.guild.roles, name="PRO TOOLS")
-    if (dawname.lower() == "reaper"):
-        role = discord.utils.get(ctx.message.guild.roles, name="REAPER")
-    if (dawname.lower() == "lmms"):
-        role = discord.utils.get(ctx.message.guild.roles, name="LMMS")
-    if (dawname.lower() == "garage band" or dawname.lower() == "garageband"):
-        role = discord.utils.get(ctx.message.guild.roles, name="GARAGE BAND")
-    if (dawname.lower() == "logic pro x" or dawname.lower() == "logic pro" or dawname.lower() == "logic"):
-        role = discord.utils.get(ctx.message.guild.roles, name="LOGIC PRO X")
-    if (role is not discord.utils.get(ctx.message.guild.roles, name="NONE")):
-        await ctx.message.author.add_roles(ctx.message.author, role)
-        await ctx.send("Role successfully added!")
-    if (role is discord.utils.get(ctx.message.guild.roles, name="NONE")):
-        await ctx.send("Role not found :(")
-
-@bot.command(pass_context = True)
-async def rapper(ctx):
-    role = discord.utils.get(ctx.message.guild.roles, name="🎤🎤🎤Rapper🎤🎤🎤")
-    await ctx.message.author.add_roles(ctx.message.author, role)
-    await ctx.send("Role successfully added!")
 
 @bot.command(pass_context = True)
 async def reset(ctx):
@@ -513,7 +424,7 @@ async def sayinchannel(ctx, roomid: str, *, msg_str: str):
     
     id = str(ctx.message.author.id)
 
-    if (id == "173850040568119296"):
+    if (id == "805284526749909033"):
         await chn.send(msg_str)
         
 bot.run(os.environ['BOT_TOKEN'])
